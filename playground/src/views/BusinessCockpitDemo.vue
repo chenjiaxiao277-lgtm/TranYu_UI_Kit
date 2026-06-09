@@ -1,8 +1,8 @@
 <template>
   <div class="cockpit">
     <div class="cockpit__header">
-      <h1>Business Cockpit</h1>
-      <button class="cockpit__refresh" @click="handleRefresh">⟳ Refresh</button>
+      <h1>经营驾驶舱</h1>
+      <button class="cockpit__refresh" @click="handleRefresh">⟳ 刷新</button>
     </div>
 
     <div class="cockpit__content">
@@ -27,7 +27,7 @@
 
       <!-- Project Progress -->
       <div class="cockpit__section">
-        <h2 class="cockpit__section-title">Active Projects</h2>
+        <h2 class="cockpit__section-title">活跃项目</h2>
         <div class="cockpit__grid">
           <project-progress-card
             v-for="project in projects"
@@ -39,7 +39,7 @@
 
       <!-- Risk Warnings -->
       <div class="cockpit__section">
-        <h2 class="cockpit__section-title">Risk Warnings</h2>
+        <h2 class="cockpit__section-title">风险预警</h2>
         <div class="cockpit__grid">
           <risk-warning-card
             v-for="risk in risks"
@@ -70,7 +70,7 @@ import type {
 
 const totalRevenueMetric: DashboardMetric = {
   id: 'metric-revenue',
-  name: 'Total Revenue',
+  name: '总收入',
   value: '$2.5M',
   trend: 'up',
   trendPercent: 18,
@@ -79,7 +79,7 @@ const totalRevenueMetric: DashboardMetric = {
 
 const monthRevenueMetric: DashboardMetric = {
   id: 'metric-month',
-  name: 'This Month',
+  name: '本月',
   value: '$180K',
   trend: 'up',
   trendPercent: 8,
@@ -87,14 +87,14 @@ const monthRevenueMetric: DashboardMetric = {
 
 const contractCountMetric: DashboardMetric = {
   id: 'metric-contracts',
-  name: 'Active Contracts',
+  name: '活跃合同',
   value: 45,
   trend: 'stable',
 };
 
 const collectionRateMetric: DashboardMetric = {
   id: 'metric-collection',
-  name: 'Collection Rate',
+  name: '回款率',
   value: '94.5%',
   trend: 'down',
   trendPercent: 2,
@@ -102,33 +102,33 @@ const collectionRateMetric: DashboardMetric = {
 
 const revenueTrend: DashboardTrend = {
   id: 'trend-revenue',
-  name: 'Revenue Trend',
-  unit: 'USD K',
+  name: '收入趋势',
+  unit: '美元 K',
   trend: 'up',
   trendPercent: 12,
   data: [
-    { timestamp: '2024-01-01', value: 1200, label: 'Jan' },
-    { timestamp: '2024-02-01', value: 1450, label: 'Feb' },
-    { timestamp: '2024-03-01', value: 1600, label: 'Mar' },
-    { timestamp: '2024-04-01', value: 1850, label: 'Apr' },
-    { timestamp: '2024-05-01', value: 2100, label: 'May' },
-    { timestamp: '2024-06-01', value: 2500, label: 'Jun' },
+    { timestamp: '2024-01-01', value: 1200, label: '1月' },
+    { timestamp: '2024-02-01', value: 1450, label: '2月' },
+    { timestamp: '2024-03-01', value: 1600, label: '3月' },
+    { timestamp: '2024-04-01', value: 1850, label: '4月' },
+    { timestamp: '2024-05-01', value: 2100, label: '5月' },
+    { timestamp: '2024-06-01', value: 2500, label: '6月' },
   ],
 };
 
 const contractTrend: DashboardTrend = {
   id: 'trend-contracts',
-  name: 'Contracts Signed',
-  unit: 'Count',
+  name: '签约合同',
+  unit: '份数',
   trend: 'up',
   trendPercent: 25,
   data: [
-    { timestamp: '2024-01-01', value: 8, label: 'Jan' },
-    { timestamp: '2024-02-01', value: 10, label: 'Feb' },
-    { timestamp: '2024-03-01', value: 9, label: 'Mar' },
-    { timestamp: '2024-04-01', value: 12, label: 'Apr' },
-    { timestamp: '2024-05-01', value: 14, label: 'May' },
-    { timestamp: '2024-06-01', value: 15, label: 'Jun' },
+    { timestamp: '2024-01-01', value: 8, label: '1月' },
+    { timestamp: '2024-02-01', value: 10, label: '2月' },
+    { timestamp: '2024-03-01', value: 9, label: '3月' },
+    { timestamp: '2024-04-01', value: 12, label: '4月' },
+    { timestamp: '2024-05-01', value: 14, label: '5月' },
+    { timestamp: '2024-06-01', value: 15, label: '6月' },
   ],
 };
 
@@ -147,38 +147,38 @@ const revenueSummary: RevenueSummary = {
 const projects: ProjectProgressItem[] = [
   {
     id: 'proj-1',
-    name: 'Platform v3.0',
+    name: '平台 v3.0',
     status: 'active',
     progress: 0.65,
     budget: 500000,
     spent: 325000,
     startDate: '2024-01-15',
     endDate: '2024-12-31',
-    owner: 'Alice Chen',
+    owner: '陈晓芸',
     riskLevel: 'medium',
   },
   {
     id: 'proj-2',
-    name: 'Mobile App Launch',
+    name: '移动应用发布',
     status: 'active',
     progress: 0.45,
     budget: 300000,
     spent: 135000,
     startDate: '2024-02-01',
     endDate: '2024-11-30',
-    owner: 'Bob Smith',
+    owner: '白晓明',
     riskLevel: 'low',
   },
   {
     id: 'proj-3',
-    name: 'Data Migration',
+    name: '数据迁移',
     status: 'completed',
     progress: 1.0,
     budget: 200000,
     spent: 200000,
     startDate: '2023-10-01',
     endDate: '2024-05-30',
-    owner: 'Charlie Brown',
+    owner: '布朗查理',
     riskLevel: 'low',
   },
 ];
@@ -186,24 +186,24 @@ const projects: ProjectProgressItem[] = [
 const risks: RiskWarningItem[] = [
   {
     id: 'risk-1',
-    name: 'Schedule Delay - Platform v3.0',
+    name: '进度延期 - 平台 v3.0',
     level: 'high',
     status: 'monitoring',
     probability: 0.7,
     impact: 0.8,
-    mitigation: 'Add 2 developers, optimize sprint planning',
-    owner: 'Alice Chen',
+    mitigation: '新增 2 名开发者，优化冲刺计划',
+    owner: '陈晓芸',
     dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
   },
   {
     id: 'risk-2',
-    name: 'Resource Shortage',
+    name: '资源短缺',
     level: 'medium',
     status: 'identified',
     probability: 0.5,
     impact: 0.6,
-    mitigation: 'Plan recruitment for Q3',
-    owner: 'HR Team',
+    mitigation: '规划 Q3 招聘计划',
+    owner: '人力资源团队',
   },
 ];
 

@@ -2,28 +2,28 @@
   <app-layout :show-sidebar="true">
     <page-container>
       <template #header>
-        <tr-page-header title="Objects" subtitle="Projects, Demands, Risks" />
+        <tr-page-header title="对象管理" subtitle="项目、需求、风险" />
       </template>
 
       <tool-bar>
         <template #left>
           <select v-model="selectedObjectType" class="object-list__select" @change="handleObjectTypeChange">
-            <option value="project">Projects</option>
-            <option value="demand">Demands</option>
-            <option value="risk">Risks</option>
+            <option value="project">项目</option>
+            <option value="demand">需求</option>
+            <option value="risk">风险</option>
           </select>
-          <tr-button type="primary" @click="handleCreate">+ Create</tr-button>
+          <tr-button type="primary" @click="handleCreate">+ 新建</tr-button>
         </template>
         <template #center>
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="搜索..."
             class="object-list__search"
             @input="handleSearch"
           >
         </template>
         <template #right>
-          <tr-button type="secondary" size="small" @click="handleRefresh">⟳ Refresh</tr-button>
+          <tr-button type="secondary" size="small" @click="handleRefresh">⟳ 刷新</tr-button>
         </template>
       </tool-bar>
 
@@ -65,52 +65,52 @@ const drawerVisible = ref(false);
 const selectedRecord = ref<ObjectRecord | undefined>();
 
 const projectFields: ObjectField[] = [
-  { id: 'name', name: 'name', label: 'Name', type: 'text' },
-  { id: 'status', name: 'status', label: 'Status', type: 'status' },
-  { id: 'budget', name: 'budget', label: 'Budget', type: 'amount' },
-  { id: 'progress', name: 'progress', label: 'Progress', type: 'percent' },
-  { id: 'owner', name: 'owner', label: 'Owner', type: 'user' },
+  { id: 'name', name: 'name', label: '名称', type: 'text' },
+  { id: 'status', name: 'status', label: '状态', type: 'status' },
+  { id: 'budget', name: 'budget', label: '预算', type: 'amount' },
+  { id: 'progress', name: 'progress', label: '进度', type: 'percent' },
+  { id: 'owner', name: 'owner', label: '负责人', type: 'user' },
 ];
 
 const demandFields: ObjectField[] = [
-  { id: 'name', name: 'name', label: 'Name', type: 'text' },
-  { id: 'status', name: 'status', label: 'Status', type: 'status' },
-  { id: 'priority', name: 'priority', label: 'Priority', type: 'select', options: [
-    { label: 'Low', value: 'low' },
-    { label: 'Medium', value: 'medium' },
-    { label: 'High', value: 'high' },
+  { id: 'name', name: 'name', label: '名称', type: 'text' },
+  { id: 'status', name: 'status', label: '状态', type: 'status' },
+  { id: 'priority', name: 'priority', label: '优先级', type: 'select', options: [
+    { label: '低', value: 'low' },
+    { label: '中', value: 'medium' },
+    { label: '高', value: 'high' },
   ]},
-  { id: 'assignee', name: 'assignee', label: 'Assignee', type: 'user' },
+  { id: 'assignee', name: 'assignee', label: '责任人', type: 'user' },
 ];
 
 const riskFields: ObjectField[] = [
-  { id: 'name', name: 'name', label: 'Name', type: 'text' },
-  { id: 'status', name: 'status', label: 'Status', type: 'status' },
-  { id: 'level', name: 'level', label: 'Level', type: 'select', options: [
-    { label: 'Low', value: 'low' },
-    { label: 'Medium', value: 'medium' },
-    { label: 'High', value: 'high' },
+  { id: 'name', name: 'name', label: '名称', type: 'text' },
+  { id: 'status', name: 'status', label: '状态', type: 'status' },
+  { id: 'level', name: 'level', label: '等级', type: 'select', options: [
+    { label: '低', value: 'low' },
+    { label: '中', value: 'medium' },
+    { label: '高', value: 'high' },
   ]},
-  { id: 'probability', name: 'probability', label: 'Probability', type: 'percent' },
+  { id: 'probability', name: 'probability', label: '概率', type: 'percent' },
 ];
 
 const projectRecords: ObjectRecord[] = [
   {
     id: '1',
     objectType: 'project',
-    data: { name: 'Platform v3.0', status: 'active', budget: 50000, progress: 0.65, owner: 'Alice' },
+    data: { name: '平台 v3.0', status: 'active', budget: 50000, progress: 0.65, owner: '陈晓芸' },
     status: 'active',
   },
   {
     id: '2',
     objectType: 'project',
-    data: { name: 'Mobile App Launch', status: 'active', budget: 30000, progress: 0.45, owner: 'Bob' },
+    data: { name: '移动应用发布', status: 'active', budget: 30000, progress: 0.45, owner: '白晓明' },
     status: 'active',
   },
   {
     id: '3',
     objectType: 'project',
-    data: { name: 'Data Migration', status: 'completed', budget: 20000, progress: 1.0, owner: 'Charlie' },
+    data: { name: '数据迁移', status: 'completed', budget: 20000, progress: 1.0, owner: '查理' },
     status: 'completed',
   },
 ];
@@ -119,13 +119,13 @@ const demandRecords: ObjectRecord[] = [
   {
     id: '1',
     objectType: 'demand',
-    data: { name: 'API Design Review', status: 'inprogress', priority: 'high', assignee: 'David' },
+    data: { name: 'API 设计评审', status: 'inprogress', priority: 'high', assignee: '大卫' },
     status: 'inprogress',
   },
   {
     id: '2',
     objectType: 'demand',
-    data: { name: 'Database Optimization', status: 'todo', priority: 'medium', assignee: 'Eve' },
+    data: { name: '数据库优化', status: 'todo', priority: 'medium', assignee: '伊芙' },
     status: 'todo',
   },
 ];
@@ -134,29 +134,29 @@ const riskRecords: ObjectRecord[] = [
   {
     id: '1',
     objectType: 'risk',
-    data: { name: 'Schedule Delay', status: 'monitoring', level: 'high', probability: 0.7 },
+    data: { name: '进度延期', status: 'monitoring', level: 'high', probability: 0.7 },
     status: 'monitoring',
   },
   {
     id: '2',
     objectType: 'risk',
-    data: { name: 'Resource Shortage', status: 'identified', level: 'medium', probability: 0.5 },
+    data: { name: '资源短缺', status: 'identified', level: 'medium', probability: 0.5 },
     status: 'identified',
   },
 ];
 
 const statusOptions: StatusOption[] = [
-  { value: 'active', label: 'Active', color: 'var(--tr-color-success)' },
-  { value: 'completed', label: 'Completed', color: 'var(--tr-color-info)' },
-  { value: 'inprogress', label: 'In Progress', color: 'var(--tr-color-warning)' },
-  { value: 'todo', label: 'To Do', color: 'var(--tr-color-neutral500)' },
-  { value: 'monitoring', label: 'Monitoring', color: 'var(--tr-color-warning)' },
-  { value: 'identified', label: 'Identified', color: 'var(--tr-color-danger)' },
+  { value: 'active', label: '活跃', color: 'var(--tr-color-success)' },
+  { value: 'completed', label: '已完成', color: 'var(--tr-color-info)' },
+  { value: 'inprogress', label: '进行中', color: 'var(--tr-color-warning)' },
+  { value: 'todo', label: '待做', color: 'var(--tr-color-neutral500)' },
+  { value: 'monitoring', label: '监控中', color: 'var(--tr-color-warning)' },
+  { value: 'identified', label: '已识别', color: 'var(--tr-color-danger)' },
 ];
 
 const tableActions: ObjectAction[] = [
-  { id: 'edit', name: 'edit', label: 'Edit', type: 'primary' },
-  { id: 'delete', name: 'delete', label: 'Delete', type: 'danger' },
+  { id: 'edit', name: 'edit', label: '编辑', type: 'primary' },
+  { id: 'delete', name: 'delete', label: '删除', type: 'danger' },
 ];
 
 const currentFields = computed(() => {

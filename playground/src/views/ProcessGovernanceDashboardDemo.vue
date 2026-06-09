@@ -1,13 +1,13 @@
 <template>
   <div class="governance">
     <div class="governance__header">
-      <h1>Process Governance Dashboard</h1>
+      <h1>流程治理驾驶舱</h1>
     </div>
 
     <div class="governance__content">
       <!-- Health Metrics -->
       <div class="governance__section">
-        <h2 class="governance__section-title">Process Health Overview</h2>
+        <h2 class="governance__section-title">流程健康概览</h2>
         <div class="governance__grid">
           <process-health-card
             v-for="process in processMetrics"
@@ -19,7 +19,7 @@
 
       <!-- Todo Summary -->
       <div class="governance__section">
-        <h2 class="governance__section-title">Work Distribution</h2>
+        <h2 class="governance__section-title">工作分布</h2>
         <div class="governance__row">
           <todo-summary-card :items="todoSummary" @click="handleAction" />
         </div>
@@ -27,7 +27,7 @@
 
       <!-- Risk Monitoring -->
       <div class="governance__section">
-        <h2 class="governance__section-title">Process Risks</h2>
+        <h2 class="governance__section-title">流程风险</h2>
         <div class="governance__grid">
           <risk-warning-card
             v-for="risk in processRisks"
@@ -55,8 +55,8 @@ import type {
 const processMetrics: ProcessHealthMetric[] = [
   {
     id: 'process-approval',
-    processType: 'Approval',
-    processName: 'Project Approval',
+    processType: '审批',
+    processName: '项目审批',
     healthScore: 85,
     overdueRate: 0.08,
     returnRate: 0.12,
@@ -67,8 +67,8 @@ const processMetrics: ProcessHealthMetric[] = [
   },
   {
     id: 'process-review',
-    processType: 'Review',
-    processName: 'Demand Review',
+    processType: '评审',
+    processName: '需求评审',
     healthScore: 78,
     overdueRate: 0.15,
     returnRate: 0.18,
@@ -79,8 +79,8 @@ const processMetrics: ProcessHealthMetric[] = [
   },
   {
     id: 'process-closure',
-    processType: 'Closure',
-    processName: 'Risk Closure',
+    processType: '关闭',
+    processName: '风险关闭',
     healthScore: 92,
     overdueRate: 0.02,
     returnRate: 0.05,
@@ -92,33 +92,33 @@ const processMetrics: ProcessHealthMetric[] = [
 ];
 
 const todoSummary: TodoSummaryItem[] = [
-  { id: 'todo-1', type: 'todo', count: 35, percent: 35, color: 'var(--tr-color-neutral400)' },
-  { id: 'todo-2', type: 'inprogress', count: 28, percent: 28, color: 'var(--tr-color-warning)' },
-  { id: 'todo-3', type: 'completed', count: 32, percent: 32, color: 'var(--tr-color-success)' },
-  { id: 'todo-4', type: 'overdue', count: 5, percent: 5, color: 'var(--tr-color-danger)' },
+  { id: 'todo-1', type: '待做', count: 35, percent: 35, color: 'var(--tr-color-neutral400)' },
+  { id: 'todo-2', type: '进行中', count: 28, percent: 28, color: 'var(--tr-color-warning)' },
+  { id: 'todo-3', type: '已完成', count: 32, percent: 32, color: 'var(--tr-color-success)' },
+  { id: 'todo-4', type: '逾期', count: 5, percent: 5, color: 'var(--tr-color-danger)' },
 ];
 
 const processRisks: RiskWarningItem[] = [
   {
     id: 'risk-overdue',
-    name: 'High Overdue Rate in Review Process',
+    name: '评审流程超期率高',
     level: 'high',
     status: 'monitoring',
     probability: 0.8,
     impact: 0.7,
-    mitigation: 'Increase reviewer capacity, set SLA enforcement',
-    owner: 'Process Owner',
+    mitigation: '增加评审员数量，设置 SLA 执行',
+    owner: '流程负责人',
     dueDate: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000).toISOString(),
   },
   {
     id: 'risk-return',
-    name: 'High Return Rate',
+    name: '退回率高',
     level: 'medium',
     status: 'identified',
     probability: 0.6,
     impact: 0.5,
-    mitigation: 'Improve process guidance and templates',
-    owner: 'Quality Team',
+    mitigation: '改进流程指导和模板',
+    owner: '质量团队',
   },
 ];
 
