@@ -91,13 +91,41 @@ pnpm build
 
 ```typescript
 // ✓ Correct: Import from @tranyu/ui
-import { TrButton, TrCard, TrTag, TrTable, TrDrawer, TrPageHeader } from '@tranyu/ui';
+import {
+  TrButton,
+  TrCard,
+  TrTag,
+  TrTable,
+  TrDrawer,
+  TrPageHeader,
+  AppLayout,
+  PageContainer,
+  ToolBar,
+  FilterBar,
+  ActionBar,
+} from '@tranyu/ui';
 
 // ✗ Wrong: Don't import from @arco-design/web-vue directly
 import { Button } from '@arco-design/web-vue'; // ESLint error
 ```
 
+### Layout Components (v0.2.0+)
+
+9 layout components for building application structure:
+
+1. **AppLayout** - Main application frame with sidebar
+2. **HeaderBar** - Top navigation with logo, theme switch, user menu
+3. **SideBar** - Navigation sidebar with menu items
+4. **PageContainer** - Page wrapper with header and body sections
+5. **ToolBar** - Action bar with left/center/right slots
+6. **FilterBar** - Filter controls container
+7. **ActionBar** - Bottom action buttons container
+8. **ThemeSwitch** - Theme toggle button
+9. **UserAvatarMenu** - User profile dropdown menu
+
 ### Component Examples
+
+#### Basic Components
 
 ```vue
 <template>
@@ -135,6 +163,46 @@ import { TrButton, TrCard, TrTag, TrTable, TrDrawer, TrPageHeader } from '@trany
 import '@tranyu/theme/dist/theme.css';
 
 const visible = ref(false);
+</script>
+```
+
+#### Layout Example
+
+```vue
+<template>
+  <app-layout :show-sidebar="true">
+    <page-container>
+      <template #header>
+        <tr-page-header title="Dashboard" />
+      </template>
+
+      <toolbar>
+        <template #left>
+          <tr-button type="primary">Create</tr-button>
+        </template>
+      </toolbar>
+
+      <filter-bar>
+        <select>
+          <option>All</option>
+          <option>Active</option>
+        </select>
+      </filter-bar>
+
+      <tr-card>
+        <tr-table :columns="columns" :data="data" />
+      </tr-card>
+
+      <action-bar>
+        <tr-button type="primary">Save</tr-button>
+      </action-bar>
+    </page-container>
+  </app-layout>
+</template>
+
+<script setup lang="ts">
+import { AppLayout, PageContainer, ToolBar, FilterBar, ActionBar, TrPageHeader, TrCard, TrButton, TrTable } from '@tranyu/ui';
+import '@tranyu/theme/dist/theme.css';
 </script>
 ```
 
@@ -214,6 +282,12 @@ All component styles use CSS Variables:
 All wrapped components use TypeScript interfaces with default values for optional props.
 
 ## Version History
+
+### v0.2.0 (In Development)
+- ✓ Layout Components (AppLayout, HeaderBar, SideBar, PageContainer, ToolBar, FilterBar, ActionBar, ThemeSwitch, UserAvatarMenu)
+- ✓ Layout Demo Pages (LayoutDemo, WorkbenchLayoutDemo)
+- ✓ Refactored ObjectListPage with layout components
+- ✓ All layout components use CSS Variables
 
 ### v0.1.0
 - ✓ Design Token System (56 CSS Variables)

@@ -1,41 +1,53 @@
 <template>
-  <div class="object-list-page">
-    <tr-page-header
-      title="Objects"
-      subtitle="Manage and organize your objects"
-    >
-      <template #extra>
-        <tr-button type="primary" @click="showDrawer = true">
-          Create Object
-        </tr-button>
+  <app-layout :show-sidebar="showSidebar" @toggle-sidebar="showSidebar = !showSidebar">
+    <page-container>
+      <template #header>
+        <tr-page-header
+          title="Objects"
+          subtitle="Manage and organize your objects"
+        >
+          <template #extra>
+            <tr-button type="primary" @click="showDrawer = true">
+              Create Object
+            </tr-button>
+          </template>
+        </tr-page-header>
       </template>
-    </tr-page-header>
 
-    <div class="object-list-page__container">
-      <!-- Search & Filter -->
-      <tr-card class="object-list-page__filters">
-        <div class="filters">
+      <toolbar>
+        <template #left>
           <input
             v-model="searchQuery"
             type="text"
             placeholder="Search objects..."
             class="search-input"
-          />
-          <div class="tags">
-            <tr-tag
-              v-for="tag in selectedTags"
-              :key="tag"
-              color="blue"
-              closable
-              @close="toggleTag(tag)"
-            >
-              {{ tag }}
-            </tr-tag>
-          </div>
-        </div>
-      </tr-card>
+          >
+        </template>
+        <template #right>
+          <span style="font-size: 12px; color: var(--tr-color-neutral600)">
+            {{ filteredObjects.length }} / {{ objects.length }}
+          </span>
+        </template>
+      </toolbar>
 
-      <!-- Objects Table -->
+      <filter-bar>
+        <div class="filter-tags">
+          <span style="font-size: 12px; color: var(--tr-color-neutral600); font-weight: 500">
+            Status:
+          </span>
+          <tr-tag
+            v-for="tag in availableStatuses"
+            :key="tag"
+            :color="getStatusColor(tag)"
+            :class="{ active: selectedTags.includes(tag) }"
+            closable
+            @click="toggleTag(tag)"
+          >
+            {{ tag }}
+          </tr-tag>
+        </div>
+      </filter-bar>
+
       <tr-card class="object-list-page__table" title="All Objects">
         <tr-table
           :columns="tableColumns"
@@ -67,7 +79,12 @@
           </template>
         </tr-table>
       </tr-card>
-    </div>
+
+      <action-bar>
+        <tr-button type="secondary">Export</tr-button>
+        <tr-button type="primary">Bulk Actions</tr-button>
+      </action-bar>
+    </page-container>
 
     <!-- Create/Edit Drawer -->
     <tr-drawer
@@ -78,7 +95,7 @@
       <div class="drawer-form">
         <div class="form-group">
           <label>Name</label>
-          <input v-model="formData.name" type="text" placeholder="Object name" />
+          <input v-model="formData.name" type="text" placeholder="Object name">
         </div>
         <div class="form-group">
           <label>Type</label>
@@ -112,12 +129,24 @@
         </div>
       </template>
     </tr-drawer>
-  </div>
+  </app-layout>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { TrPageHeader, TrCard, TrButton, TrTag, TrTable, TrDrawer } from '@tranyu/ui';
+import {
+  AppLayout,
+  PageContainer,
+  Toolbar,
+  FilterBar,
+  ActionBar,
+  TrPageHeader,
+  TrCard,
+  TrButton,
+  TrTag,
+  TrTable,
+  TrDrawer,
+} from '@tranyu/ui';
 
 interface ObjectItem {
   id: string;
@@ -129,6 +158,7 @@ interface ObjectItem {
   owner: string;
 }
 
+const showSidebar = ref(true);
 const objects = ref<ObjectItem[]>([
   {
     id: '1',
@@ -181,6 +211,8 @@ const searchQuery = ref('');
 const selectedTags = ref<string[]>(['Active']);
 const showDrawer = ref(false);
 const editingId = ref<string | null>(null);
+
+const availableStatuses = ['Active', 'Archived', 'Draft'];
 
 const formData = ref({
   name: '',
@@ -273,36 +305,12 @@ const closeDrawer = () => {
 </script>
 
 <style scoped>
-.object-list-page {
-  min-height: 100vh;
-  background-color: var(--tr-color-neutral50);
-}
-
-.object-list-page__container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: var(--tr-spacing-6);
-  display: flex;
-  flex-direction: column;
-  gap: var(--tr-spacing-6);
-}
-
-.object-list-page__filters {
-  width: 100%;
-}
-
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: var(--tr-spacing-4);
-}
-
 .search-input {
-  width: 100%;
   padding: var(--tr-spacing-3) var(--tr-spacing-4);
   border: 1px solid var(--tr-color-neutral300);
   border-radius: var(--tr-radius-md);
   font-size: 14px;
+  width: 250px;
   transition: all var(--tr-motion-normal);
 }
 
@@ -312,14 +320,15 @@ const closeDrawer = () => {
   box-shadow: 0 0 0 2px rgba(94, 92, 230, 0.1);
 }
 
-.tags {
+.filter-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--tr-spacing-2);
+  align-items: center;
+  gap: var(--tr-spacing-3);
 }
 
 .object-list-page__table {
   width: 100%;
+  margin-bottom: var(--tr-spacing-6);
 }
 
 .action-buttons {

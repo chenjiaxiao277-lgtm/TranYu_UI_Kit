@@ -4,3 +4,5 @@ export { default as TrTag } from './TrTag.vue';
 export { default as TrTable } from './TrTable.vue';
 export { default as TrDrawer } from './TrDrawer.vue';
 export { default as TrPageHeader } from './TrPageHeader.vue';
+
+export * from '../layout/index.js';
