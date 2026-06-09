@@ -373,7 +373,53 @@ All wrapped components use TypeScript interfaces with default values for optiona
 
 ## Version History
 
-### v0.4.0 (Current)
+### v0.5.0 (Current)
+AI Action components for generation, analysis, and suggestion:
+
+**Core Components**:
+- ✓ AiActionButton - 7 action types (generate, summary, check, analyze, suggest, rewrite, extract)
+- ✓ AiSuggestionPanel - Suggestion with rationale, confidence, references
+- ✓ AiCheckResult - Check items with risk levels, issues, suggestions
+- ✓ AiGenerateModal - Result display with manual confirmation workflow
+- ✓ AiConfirmBar - Adopt/Ignore/Regenerate action controls
+- ✓ AiExecutionLog - Audit trail with model, duration, token usage
+- ✓ AiStatusTag - Status with risk level indicators (low/medium/high/critical)
+- ✓ KnowledgeReferenceList - Linked knowledge sources with relevance
+
+**Actions Supported** (7 types):
+generate, summary, check, analyze, suggest, rewrite, extract
+
+**Data Model** (`types.ts`):
+- AiActionType: 7 AI action types
+- AiExecutionStatus: pending, loading, success, failed, partial
+- AiRiskLevel: low, medium, high, critical
+- AiActionConfig: Action configuration with disable support
+- AiSuggestion: Suggestion with rationale, confidence, risk level, references
+- AiCheckItem: Check item with pass status, issues, suggestions
+- KnowledgeReference: Linked knowledge with relevance score
+- AiExecutionLogItem: Execution log with model, duration, token usage
+
+**Demo Pages** (4 concrete implementations proving reusability):
+- RequirementAiGenerateDemo - Generate requirement descriptions and criteria
+- StageGateAiCheckDemo - Validate stage gate deliverables
+- ProjectRiskAiSummaryDemo - Summarize risks and mitigation strategies
+- ProcessAuditAiSuggestionDemo - Suggest process improvements
+
+Same AI components work across all scenarios - configuration-driven, no hardcoded AI logic.
+
+**Key Design**:
+- AI results shown in modal, NOT auto-written back
+- Manual confirmation required (adopt/ignore/regenerate)
+- Full execution audit trail with token tracking
+- Knowledge base references for all suggestions
+- Risk-aware status indicators
+
+**Verification**:
+- ✓ `pnpm lint` - ESLint passes
+- ✓ `pnpm style` - Stylelint passes with no hardcoded colors
+- ✓ `pnpm build` - Theme build succeeds
+
+### v0.4.0
 Process workflow components for approvals, reviews, and closures:
 
 **Core Components**:

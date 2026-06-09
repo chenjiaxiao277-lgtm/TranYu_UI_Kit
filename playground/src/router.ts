@@ -11,6 +11,11 @@ import ProcessComponentDemo from './views/ProcessComponentDemo.vue';
 import ProjectApprovalDemo from './views/ProjectApprovalDemo.vue';
 import DemandReviewDemo from './views/DemandReviewDemo.vue';
 import RiskCloseDemo from './views/RiskCloseDemo.vue';
+import AiComponentDemo from './views/AiComponentDemo.vue';
+import RequirementAiGenerateDemo from './views/RequirementAiGenerateDemo.vue';
+import StageGateAiCheckDemo from './views/StageGateAiCheckDemo.vue';
+import ProjectRiskAiSummaryDemo from './views/ProjectRiskAiSummaryDemo.vue';
+import ProcessAuditAiSuggestionDemo from './views/ProcessAuditAiSuggestionDemo.vue';
 
 const routes = [
   {
@@ -72,6 +77,31 @@ const routes = [
     path: '/process/risk-close',
     name: 'RiskCloseDemo',
     component: RiskCloseDemo,
+  },
+  {
+    path: '/ai-component-demo',
+    name: 'AiComponentDemo',
+    component: AiComponentDemo,
+  },
+  {
+    path: '/ai/requirement-generate',
+    name: 'RequirementAiGenerateDemo',
+    component: RequirementAiGenerateDemo,
+  },
+  {
+    path: '/ai/stage-gate-check',
+    name: 'StageGateAiCheckDemo',
+    component: StageGateAiCheckDemo,
+  },
+  {
+    path: '/ai/project-risk-summary',
+    name: 'ProjectRiskAiSummaryDemo',
+    component: ProjectRiskAiSummaryDemo,
+  },
+  {
+    path: '/ai/process-audit-suggestion',
+    name: 'ProcessAuditAiSuggestionDemo',
+    component: ProcessAuditAiSuggestionDemo,
   },
 ];
 
