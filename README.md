@@ -206,6 +206,96 @@ import '@tranyu/theme/dist/theme.css';
 </script>
 ```
 
+#### BusinessObject Example (v0.3.0+)
+
+```vue
+<template>
+  <page-container>
+    <template #header>
+      <tr-page-header title="Projects" />
+    </template>
+
+    <!-- Toolbar for create, search, refresh -->
+    <object-toolbar
+      :object-type="'project'"
+      @create="handleCreate"
+      @search="handleSearch"
+      @refresh="handleRefresh"
+    />
+
+    <!-- Dynamic table from field configuration -->
+    <object-table
+      :object-type="'project'"
+      :fields="fields"
+      :records="projects"
+      :status-field="'status'"
+      :status-options="statusOptions"
+      :actions="actions"
+      @row-click="selectedProject = $event"
+      @action="handleAction"
+    />
+
+    <!-- Detail drawer for viewing/editing -->
+    <object-detail-drawer
+      :visible="drawerVisible"
+      :record="selectedProject"
+      :fields="fields"
+      :status-field="'status'"
+      :status-options="statusOptions"
+      :actions="actions"
+      @close="drawerVisible = false"
+      @action="handleDetailAction"
+    />
+  </page-container>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { ObjectToolbar, ObjectTable, ObjectDetailDrawer } from '@tranyu/business/object';
+import type { ObjectField, ObjectRecord, ObjectAction, StatusOption } from '@tranyu/business/object';
+import '@tranyu/theme/dist/theme.css';
+
+const drawerVisible = ref(false);
+const selectedProject = ref<ObjectRecord | undefined>();
+
+// Configuration-driven: same components work for projects, demands, risks, etc.
+const fields: ObjectField[] = [
+  { id: 'name', name: 'name', label: 'Name', type: 'text', required: true },
+  { id: 'status', name: 'status', label: 'Status', type: 'status' },
+  { id: 'budget', name: 'budget', label: 'Budget', type: 'amount' },
+  { id: 'progress', name: 'progress', label: 'Progress', type: 'percent' },
+  { id: 'owner', name: 'owner', label: 'Owner', type: 'user' },
+];
+
+const statusOptions: StatusOption[] = [
+  { value: 'planning', label: 'Planning', color: 'var(--tr-color-warning)' },
+  { value: 'active', label: 'Active', color: 'var(--tr-color-success)' },
+  { value: 'completed', label: 'Completed', color: 'var(--tr-color-info)' },
+  { value: 'canceled', label: 'Canceled', color: 'var(--tr-color-neutral500)' },
+];
+
+const actions: ObjectAction[] = [
+  { id: 'edit', name: 'edit', label: 'Edit', type: 'primary' },
+  { id: 'delete', name: 'delete', label: 'Delete', type: 'danger', requiresConfirm: true },
+];
+
+const projects: ObjectRecord[] = [
+  {
+    id: '1',
+    objectType: 'project',
+    data: { name: 'Platform v3.0', status: 'active', budget: 50000, progress: 0.65, owner: 'Alice' },
+    status: 'active',
+  },
+];
+
+const handleCreate = () => console.log('Create new project');
+const handleSearch = (query: string) => console.log('Search:', query);
+const handleRefresh = () => console.log('Refresh projects');
+const handleAction = (action: ObjectAction, record: ObjectRecord) => console.log('Action:', action.id, record.id);
+const handleDetailAction = (action: ObjectAction) => console.log('Detail action:', action.id);
+</script>
+```
+
 ## Design System
 
 ### Available Tokens
@@ -283,7 +373,41 @@ All wrapped components use TypeScript interfaces with default values for optiona
 
 ## Version History
 
-### v0.2.0 (In Development)
+### v0.3.0 (Current)
+BusinessObject-driven configuration system enabling reusable components for any object type:
+
+**Core Components**:
+- ✓ ObjectTable - Dynamic table from ObjectField[] configuration
+- ✓ ObjectDetailDrawer - Modal detail view with field-by-field display
+- ✓ ObjectToolbar - Multi-slot action bar (create, search, refresh)
+- ✓ ObjectStatusTag - Unified status badge with configurable colors
+- ✓ ObjectFieldRenderer - Type-aware field rendering (16+ types)
+- ✓ ObjectForm - Dynamic form building (P1 - basic implementation)
+- ✓ ObjectFilterBar - Dynamic filter UI (P1 - placeholder)
+- ✓ ObjectRelationPanel - Related object display (P1 - placeholder)
+
+**Field Types Supported** (16):
+text, textarea, number, date, datetime, select, multiSelect, user, department, status, amount, percent, file, relation, richText, json
+
+**Data Model** (`types.ts`):
+- FieldType: 16 configurable field types
+- ObjectField: Field definition with type, options, validation
+- ObjectRecord: Data container with id, objectType, data, status, timestamps
+- ObjectAction: Action definition with type, confirm options
+- StatusOption: Color-mapped status values
+- ObjectConfig: Complete object type configuration
+
+**Demo Pages** (3 concrete implementations):
+- ProjectObjectDemo - Projects with budget, progress, owner, dates
+- DemandObjectDemo - Requirements with priority, assignee, effort
+- RiskObjectDemo - Risks with level, probability, impact, mitigation
+
+**Verification**:
+- ✓ `pnpm lint` - ESLint passes with TypeScript strict rules
+- ✓ `pnpm style` - Stylelint passes with no hardcoded colors
+- ✓ `pnpm build` - Theme build succeeds
+
+### v0.2.0
 - ✓ Layout Components (AppLayout, HeaderBar, SideBar, PageContainer, ToolBar, FilterBar, ActionBar, ThemeSwitch, UserAvatarMenu)
 - ✓ Layout Demo Pages (LayoutDemo, WorkbenchLayoutDemo)
 - ✓ Refactored ObjectListPage with layout components

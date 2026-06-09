@@ -1,0 +1,25 @@
+{
+  "name": "@tranyu/business",
+  "version": "0.3.0",
+  "type": "module",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    },
+    "./object": {
+      "import": "./src/object/index.ts",
+      "types": "./src/object/index.ts"
+    }
+  },
+  "peerDependencies": {
+    "@tranyu/ui": "*",
+    "vue": "^3.4.21"
+  },
+  "dependencies": {
+    "@tranyu/ui": "workspace:*"
+  }
+}

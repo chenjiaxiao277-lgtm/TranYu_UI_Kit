@@ -32,7 +32,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['packages/ui/**/*.vue', 'packages/ui/**/*.ts', 'playground/**/*.vue', 'playground/**/*.ts'],
+      files: ['packages/ui/**/*.vue', 'packages/ui/**/*.ts', 'packages/business/**/*.vue', 'packages/business/**/*.ts', 'playground/**/*.vue', 'playground/**/*.ts'],
       rules: {
         'no-restricted-imports': 'off',
       },
@@ -42,10 +42,18 @@ module.exports = {
       rules: {
         'vue/max-attributes-per-line': 'off',
         'vue/singleline-html-element-content-newline': 'off',
+        'vue/valid-v-slot': 'off',
+        'vue/require-default-prop': 'off',
       },
     },
     {
-      files: ['packages/ui/**/*.vue'],
+      files: ['packages/ui/**/*.vue', 'packages/business/**/*.vue'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+      },
+    },
+    {
+      files: ['packages/business/**/*.ts'],
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
       },
