@@ -4,7 +4,13 @@
       title="TranYu UI Kit"
       subtitle="Design System & Component Library"
       show-back="false"
-    />
+    >
+      <template #extra>
+        <router-link to="/objects" class="nav-link">
+          <tr-button type="secondary" size="small">View Demo Page</tr-button>
+        </router-link>
+      </template>
+    </tr-page-header>
 
     <div class="style-guide__container">
       <!-- Buttons -->
@@ -190,6 +196,10 @@ const tableData = [
 </script>
 
 <style scoped>
+.nav-link {
+  text-decoration: none;
+}
+
 .style-guide {
   min-height: 100vh;
   background-color: var(--tr-color-neutral50);
