@@ -7,6 +7,10 @@ import ObjectComponentDemo from './views/ObjectComponentDemo.vue';
 import ProjectObjectDemo from './views/ProjectObjectDemo.vue';
 import DemandObjectDemo from './views/DemandObjectDemo.vue';
 import RiskObjectDemo from './views/RiskObjectDemo.vue';
+import ProcessComponentDemo from './views/ProcessComponentDemo.vue';
+import ProjectApprovalDemo from './views/ProjectApprovalDemo.vue';
+import DemandReviewDemo from './views/DemandReviewDemo.vue';
+import RiskCloseDemo from './views/RiskCloseDemo.vue';
 
 const routes = [
   {
@@ -48,6 +52,26 @@ const routes = [
     path: '/object-demo/risk',
     name: 'RiskObjectDemo',
     component: RiskObjectDemo,
+  },
+  {
+    path: '/process-component-demo',
+    name: 'ProcessComponentDemo',
+    component: ProcessComponentDemo,
+  },
+  {
+    path: '/process/project-approval',
+    name: 'ProjectApprovalDemo',
+    component: ProjectApprovalDemo,
+  },
+  {
+    path: '/process/demand-review',
+    name: 'DemandReviewDemo',
+    component: DemandReviewDemo,
+  },
+  {
+    path: '/process/risk-close',
+    name: 'RiskCloseDemo',
+    component: RiskCloseDemo,
   },
 ];
 

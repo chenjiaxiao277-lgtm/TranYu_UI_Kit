@@ -373,7 +373,42 @@ All wrapped components use TypeScript interfaces with default values for optiona
 
 ## Version History
 
-### v0.3.0 (Current)
+### v0.4.0 (Current)
+Process workflow components for approvals, reviews, and closures:
+
+**Core Components**:
+- ✓ ProcessStatusTag - Status badge with overdue indicator
+- ✓ ProcessTimeline - Node progress visualization with 6 status types
+- ✓ ProcessActionBar - Dynamic action buttons with disabled reasons
+- ✓ ProcessTaskCard - Task display with assignee, due date, SLA
+- ✓ ProcessLogList - Audit trail with action history
+- ✓ ProcessNodeCard - Individual node card with status
+- ✓ ProcessAuditResult - Log entry with actor, timestamp, remark
+- ✓ ApprovalActionModal - Remark input and confirmation dialog
+
+**Actions Supported** (9 types):
+submit, approve, reject, return, transfer, addSign, forcePass, close, reopen
+
+**Data Model** (`types.ts`):
+- ProcessStatus: pending, processing, completed, rejected, returned, overdue, draft, closed
+- ProcessNode: Node with status, assignee, SLA, timeline
+- ProcessAction: Action with type, remark requirement, confirmation
+- ProcessInstance: Complete process with nodes, logs, actions
+- ProcessLog: Audit trail entry with timestamp, actor, result
+
+**Demo Pages** (3 concrete implementations proving reusability):
+- ProjectApprovalDemo - Platform v3.0 project initiation process
+- DemandReviewDemo - API Design Review requirement process
+- RiskCloseDemo - Schedule Delay risk closure process
+
+Same ProcessTimeline, ProcessActionBar, ProcessTaskCard components used across all three process types - reusable via configuration.
+
+**Verification**:
+- ✓ `pnpm lint` - ESLint passes
+- ✓ `pnpm style` - Stylelint passes with no hardcoded colors
+- ✓ `pnpm build` - Theme build succeeds
+
+### v0.3.0
 BusinessObject-driven configuration system enabling reusable components for any object type:
 
 **Core Components**:
@@ -401,11 +436,6 @@ text, textarea, number, date, datetime, select, multiSelect, user, department, s
 - ProjectObjectDemo - Projects with budget, progress, owner, dates
 - DemandObjectDemo - Requirements with priority, assignee, effort
 - RiskObjectDemo - Risks with level, probability, impact, mitigation
-
-**Verification**:
-- ✓ `pnpm lint` - ESLint passes with TypeScript strict rules
-- ✓ `pnpm style` - Stylelint passes with no hardcoded colors
-- ✓ `pnpm build` - Theme build succeeds
 
 ### v0.2.0
 - ✓ Layout Components (AppLayout, HeaderBar, SideBar, PageContainer, ToolBar, FilterBar, ActionBar, ThemeSwitch, UserAvatarMenu)
