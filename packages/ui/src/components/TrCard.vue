@@ -19,6 +19,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
+  title: undefined,
   hoverable: true,
 });
 </script>

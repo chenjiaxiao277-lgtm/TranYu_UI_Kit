@@ -35,6 +35,7 @@ defineEmits<{
 }>();
 
 withDefaults(defineProps<Props>(), {
+  title: undefined,
   width: 400,
   placement: 'right',
   maskClosable: true,

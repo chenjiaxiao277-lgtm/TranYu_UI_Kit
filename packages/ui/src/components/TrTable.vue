@@ -34,6 +34,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   columns: () => [],
   data: () => [],
+  pagination: undefined,
   loading: false,
   size: 'medium',
   bordered: true,

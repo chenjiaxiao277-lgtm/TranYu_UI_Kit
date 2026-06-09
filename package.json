@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "dev": "npm run -w playground dev",
-    "build": "npm run build -w packages/theme && npm run build -w packages/ui",
+    "build": "npm run build -w packages/theme",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.mts,.cts",
     "style": "stylelint '**/*.{css,scss,vue}'"
   },
@@ -19,6 +19,7 @@
     "@typescript-eslint/parser": "^7.0.0",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.20.1",
+    "postcss-html": "^1.8.1",
     "sass": "^1.77.0",
     "stylelint": "^16.3.1",
     "stylelint-config-standard-scss": "^13.0.0",

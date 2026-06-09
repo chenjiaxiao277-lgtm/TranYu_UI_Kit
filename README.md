@@ -1,17 +1,42 @@
 # TranYu UI Kit
 
-Design system and component library with monday.com-inspired UI constraints.
+Enterprise-grade design system and component library with monday.com-inspired UI constraints.
 
-## Structure
+## Project Positioning
+
+A comprehensive Vue 3 component library with:
+- Design token system (colors, spacing, radius, shadows, motion)
+- Arco Design Vue wrapper components enforcing design consistency
+- ESLint & Stylelint enforcement for strict UI constraints
+- Centralized style management via CSS Variables
+
+## Tech Stack
+
+- **Vue**: 3.5+
+- **Vite**: 5.4+ (dev server & build)
+- **Arco Design Vue**: 2.53+ (wrapped components)
+- **TypeScript**: 5.4+
+- **Sass**: 1.77+ (component styles)
+- **ESLint**: 8.57+ (code linting)
+- **Stylelint**: 16.26+ (style linting)
+- **pnpm**: workspaces (monorepo management)
+
+## Directory Structure
 
 ```
+tranyu-ui-kit/
 ├── packages/
-│   ├── theme/          # Design tokens & CSS variables
-│   │   ├── src/tokens.ts
-│   │   └── scripts/build.js
-│   └── ui/            # Wrapped Arco Design components
+│   ├── theme/                    # Design token system
+│   │   ├── src/tokens.ts         # Token definitions
+│   │   ├── scripts/build.js      # CSS Variables generator
+│   │   ├── dist/                 # Generated outputs
+│   │   │   ├── theme.css         # 56 CSS Variables
+│   │   │   ├── tokens.js
+│   │   │   └── index.js
+│   │   └── package.json
+│   └── ui/                       # Wrapped components
 │       ├── src/
-│       │   ├── components/
+│       │   ├── components/       # 6 wrapped Arco components
 │       │   │   ├── TrButton.vue
 │       │   │   ├── TrCard.vue
 │       │   │   ├── TrTag.vue
@@ -20,29 +45,191 @@ Design system and component library with monday.com-inspired UI constraints.
 │       │   │   └── TrPageHeader.vue
 │       │   └── index.ts
 │       └── package.json
-└── playground/        # Demo & style guide
-    ├── src/
-    │   ├── views/StyleGuide.vue
-    │   ├── App.vue
-    │   ├── router.ts
-    │   └── main.ts
-    ├── index.html
-    └── vite.config.ts
+├── playground/                   # Demo & StyleGuide
+│   ├── src/
+│   │   ├── views/StyleGuide.vue  # Component showcase
+│   │   ├── App.vue
+│   │   ├── main.ts
+│   │   └── router.ts
+│   ├── index.html
+│   ├── vite.config.ts
+│   └── package.json
+├── .eslintrc.cjs                 # ESLint configuration
+├── .stylelintrc.cjs              # Stylelint configuration
+├── tsconfig.json                 # TypeScript configuration
+├── pnpm-workspace.yaml           # Workspace configuration
+└── package.json                  # Root package.json
 ```
 
-## Rules
+## Getting Started
 
-1. **CSS Variables Only**: All components must use `var(--tr-*)` tokens
-2. **No Direct Arco Imports**: Business pages import from `@tranyu/ui` only
-3. **Design Tokens**: Use `@tranyu/theme` for all styling
-4. **ESLint**: No restricted imports from `@arco-design/web-vue`
-5. **Stylelint**: No hardcoded hex colors or rgba
-
-## Commands
+### Installation
 
 ```bash
-npm run dev       # Start playground
-npm run build     # Build theme & ui
-npm run lint      # ESLint
-npm run style     # Stylelint
+pnpm install
 ```
+
+### Development
+
+```bash
+# Start playground dev server (http://localhost:5173)
+pnpm dev
+
+# ESLint check
+pnpm lint
+
+# Stylelint check
+pnpm style
+
+# Build theme tokens
+pnpm build
+```
+
+## Component Usage
+
+### Import Components
+
+```typescript
+// ✓ Correct: Import from @tranyu/ui
+import { TrButton, TrCard, TrTag, TrTable, TrDrawer, TrPageHeader } from '@tranyu/ui';
+
+// ✗ Wrong: Don't import from @arco-design/web-vue directly
+import { Button } from '@arco-design/web-vue'; // ESLint error
+```
+
+### Component Examples
+
+```vue
+<template>
+  <!-- Button -->
+  <tr-button type="primary" size="large">Submit</tr-button>
+  
+  <!-- Card -->
+  <tr-card title="Card Title" hoverable>
+    <p>Card content</p>
+    <template #footer>
+      <tr-button type="primary">Action</tr-button>
+    </template>
+  </tr-card>
+  
+  <!-- Tag -->
+  <tr-tag color="blue" closable>Label</tr-tag>
+  
+  <!-- Table -->
+  <tr-table :columns="columns" :data="data" />
+  
+  <!-- Drawer -->
+  <tr-drawer title="Drawer" :visible="visible" @cancel="visible = false">
+    Drawer content
+  </tr-drawer>
+  
+  <!-- PageHeader -->
+  <tr-page-header title="Page Title" subtitle="Subtitle">
+    <tr-button type="primary">Action</tr-button>
+  </tr-page-header>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { TrButton, TrCard, TrTag, TrTable, TrDrawer, TrPageHeader } from '@tranyu/ui';
+import '@tranyu/theme/dist/theme.css';
+
+const visible = ref(false);
+</script>
+```
+
+## Design System
+
+### Available Tokens
+
+**Colors** (20): primary, neutral (0-900), success, warning, danger, info, error  
+**Radius** (7): none, xs, sm, md, lg, xl, full  
+**Spacing** (16): 0-15 (2px to 80px)  
+**Shadows** (5): none, xs, sm, md, lg, xl  
+**Motion** (7): fast, normal, slow, slowest + easing functions
+
+### Token Usage
+
+All component styles use CSS Variables:
+
+```css
+.tr-button {
+  background-color: var(--tr-color-primary);
+  border-radius: var(--tr-radius-md);
+  padding: var(--tr-spacing-4);
+  transition: all var(--tr-motion-normal) var(--tr-motion-easeInOut);
+  box-shadow: var(--tr-shadow-sm);
+}
+```
+
+### Custom Component Example
+
+```vue
+<template>
+  <div class="my-component">
+    <h2>Custom Component</h2>
+    <p>Using theme tokens</p>
+  </div>
+</template>
+
+<script setup lang="ts">
+</script>
+
+<style scoped>
+.my-component {
+  /* ✓ Correct: Use CSS Variables */
+  background-color: var(--tr-color-neutral50);
+  color: var(--tr-color-neutral900);
+  padding: var(--tr-spacing-6);
+  border-radius: var(--tr-radius-lg);
+  border: 1px solid var(--tr-color-neutral200);
+  
+  /* ✗ Wrong: Don't hardcode colors */
+  /* background-color: #f8f8fa; */  /* Stylelint error */
+}
+</style>
+```
+
+## Constraints & Rules
+
+### 1. CSS Variables Only
+- **Rule**: All component styles MUST use `var(--tr-*)`
+- **Enforcement**: Stylelint `color-no-hex: true`
+- **Violation**: Build fails
+
+### 2. No Direct Arco Imports
+- **Rule**: Business pages import from `@tranyu/ui` only
+- **Enforcement**: ESLint `no-restricted-imports`
+- **Violation**: Lint fails
+- **Exception**: `packages/ui/*` and `playground/*` allowed
+
+### 3. Use Design Tokens
+- **Colors**: `var(--tr-color-*)`
+- **Spacing**: `var(--tr-spacing-*)`
+- **Radius**: `var(--tr-radius-*)`
+- **Shadows**: `var(--tr-shadow-*)`
+- **Motion**: `var(--tr-motion-*)`
+
+### 4. Component Props
+All wrapped components use TypeScript interfaces with default values for optional props.
+
+## Version History
+
+### v0.1.0
+- ✓ Design Token System (56 CSS Variables)
+- ✓ 6 Wrapped Components (TrButton, TrCard, TrTag, TrTable, TrDrawer, TrPageHeader)
+- ✓ StyleGuide Showcase Page
+- ✓ ESLint no-restricted-imports enforcement
+- ✓ Stylelint color-no-hex enforcement
+
+## Contributing
+
+1. Create components in `packages/ui/src/components/`
+2. All styles must use `var(--tr-*)`
+3. Update `packages/ui/src/components/index.ts`
+4. Run `pnpm lint && pnpm style`
+5. Test in `playground/src/views/StyleGuide.vue`
+
+## License
+
+MIT

@@ -1,7 +1,7 @@
 <template>
   <div class="tr-page-header">
     <div class="tr-page-header__top">
-      <div class="tr-page-header__back" v-if="showBack" @click="$emit('back')">
+      <div v-if="showBack" class="tr-page-header__back" @click="$emit('back')">
         <a-icon icon="icon-arrow-left" />
       </div>
       <div class="tr-page-header__content">
@@ -32,6 +32,7 @@ defineEmits<{
 }>();
 
 withDefaults(defineProps<Props>(), {
+  subtitle: undefined,
   showBack: true,
 });
 </script>

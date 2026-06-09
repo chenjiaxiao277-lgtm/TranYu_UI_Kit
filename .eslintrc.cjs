@@ -20,12 +20,10 @@ module.exports = {
     'no-restricted-imports': [
       'error',
       {
-        patterns: [
+        paths: [
           {
-            group: ['@arco-design/web-vue'],
+            name: '@arco-design/web-vue',
             message: 'Import Arco components from @tranyu/ui instead',
-            allowedImportNames: [],
-            importNamePattern: '.*',
           },
         ],
       },
@@ -34,9 +32,22 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['packages/ui/**/*.vue', 'packages/ui/**/*.ts'],
+      files: ['packages/ui/**/*.vue', 'packages/ui/**/*.ts', 'playground/**/*.vue', 'playground/**/*.ts'],
       rules: {
         'no-restricted-imports': 'off',
+      },
+    },
+    {
+      files: ['**/*.vue'],
+      rules: {
+        'vue/max-attributes-per-line': 'off',
+        'vue/singleline-html-element-content-newline': 'off',
+      },
+    },
+    {
+      files: ['packages/ui/**/*.vue'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
       },
     },
   ],
