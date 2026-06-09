@@ -17,17 +17,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-restricted-imports': [
-      'error',
-      {
-        paths: [
-          {
-            name: '@arco-design/web-vue',
-            message: 'Import components from @tranyu/ui instead',
-          },
-        ],
-      },
-    ],
     '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
   },
   overrides: [

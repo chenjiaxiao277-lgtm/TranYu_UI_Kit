@@ -4,10 +4,21 @@
   "description": "TranYu Main Platform - Component Library Integration Validation",
   "type": "module",
   "main": "src/main.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
   "dependencies": {
     "vue": "^3.5.0",
+    "vue-router": "^4.3.0",
+    "@arco-design/web-vue": "^2.53.0",
     "@tranyu/ui": "workspace:*",
     "@tranyu/theme": "workspace:*",
     "@tranyu/business": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.4.0",
+    "typescript": "^5.4.5"
   }
 }

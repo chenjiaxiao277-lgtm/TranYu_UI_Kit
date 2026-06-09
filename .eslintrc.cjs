@@ -32,7 +32,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['packages/ui/**/*.vue', 'packages/ui/**/*.ts', 'packages/business/**/*.vue', 'packages/business/**/*.ts', 'playground/**/*.vue', 'playground/**/*.ts'],
+      files: ['packages/ui/**/*', 'packages/business/**/*', 'playground/**/*', 'main-platform/**/*'],
       rules: {
         'no-restricted-imports': 'off',
       },
