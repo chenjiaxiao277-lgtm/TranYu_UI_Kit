@@ -1,0 +1,28 @@
+{
+  "name": "tranyu-ui-kit",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "playground"
+  ],
+  "scripts": {
+    "dev": "npm run -w playground dev",
+    "build": "npm run build -w packages/theme && npm run build -w packages/ui",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.mts,.cts",
+    "style": "stylelint '**/*.{css,scss,vue}'"
+  },
+  "devDependencies": {
+    "@arco-design/web-vue": "^2.53.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.20.1",
+    "sass": "^1.77.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "typescript": "^5.4.5",
+    "vue": "^3.4.21"
+  }
+}

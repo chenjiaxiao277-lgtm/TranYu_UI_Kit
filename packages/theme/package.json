@@ -1,0 +1,25 @@
+{
+  "name": "@tranyu/theme",
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./tokens": {
+      "import": "./dist/tokens.js",
+      "types": "./dist/tokens.d.ts"
+    },
+    "./css": "./dist/theme.css"
+  },
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
