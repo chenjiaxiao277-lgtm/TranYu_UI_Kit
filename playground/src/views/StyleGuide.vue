@@ -1,61 +1,61 @@
 <template>
   <div class="style-guide">
     <tr-page-header
-      title="TranYu UI Kit"
-      subtitle="Design System & Component Library"
+      title="设计令牌与组件库"
+      subtitle="创与 UI 体系 - 完整的设计系统"
       show-back="false"
     >
       <template #extra>
         <router-link to="/objects" class="nav-link">
-          <tr-button type="secondary" size="small">View Demo Page</tr-button>
+          <tr-button type="secondary" size="small">查看演示页面</tr-button>
         </router-link>
       </template>
     </tr-page-header>
 
     <div class="style-guide__container">
       <!-- Buttons -->
-      <tr-card title="Buttons" class="style-guide__section">
+      <tr-card title="按钮" class="style-guide__section">
         <div class="style-guide__grid">
           <div class="style-guide__group">
-            <h4>Primary</h4>
-            <tr-button type="primary" size="large">Large</tr-button>
-            <tr-button type="primary" size="medium">Medium</tr-button>
-            <tr-button type="primary" size="small">Small</tr-button>
-            <tr-button type="primary" size="mini">Mini</tr-button>
+            <h4>主按钮</h4>
+            <tr-button type="primary" size="large">大</tr-button>
+            <tr-button type="primary" size="medium">中</tr-button>
+            <tr-button type="primary" size="small">小</tr-button>
+            <tr-button type="primary" size="mini">超小</tr-button>
           </div>
           <div class="style-guide__group">
-            <h4>Secondary</h4>
-            <tr-button type="secondary" size="large">Large</tr-button>
-            <tr-button type="secondary" size="medium">Medium</tr-button>
-            <tr-button type="secondary" size="small">Small</tr-button>
-            <tr-button type="secondary" size="mini">Mini</tr-button>
+            <h4>次按钮</h4>
+            <tr-button type="secondary" size="large">大</tr-button>
+            <tr-button type="secondary" size="medium">中</tr-button>
+            <tr-button type="secondary" size="small">小</tr-button>
+            <tr-button type="secondary" size="mini">超小</tr-button>
           </div>
           <div class="style-guide__group">
-            <h4>Disabled</h4>
-            <tr-button type="primary" disabled>Disabled</tr-button>
-            <tr-button type="secondary" disabled>Disabled</tr-button>
+            <h4>禁用状态</h4>
+            <tr-button type="primary" disabled>已禁用</tr-button>
+            <tr-button type="secondary" disabled>已禁用</tr-button>
           </div>
           <div class="style-guide__group">
-            <h4>Loading</h4>
-            <tr-button type="primary" loading>Loading</tr-button>
+            <h4>加载状态</h4>
+            <tr-button type="primary" loading>加载中</tr-button>
           </div>
         </div>
       </tr-card>
 
       <!-- Cards -->
-      <tr-card title="Cards" class="style-guide__section">
+      <tr-card title="卡片" class="style-guide__section">
         <div class="style-guide__grid">
           <tr-card>
-            <p>Card with default content</p>
+            <p>默认卡片内容</p>
           </tr-card>
-          <tr-card title="Card Title">
-            <p>Card with header and content</p>
+          <tr-card title="卡片标题">
+            <p>带标题和内容的卡片</p>
           </tr-card>
-          <tr-card title="Card with Footer">
-            <p>Card with header, content and footer</p>
+          <tr-card title="带页脚的卡片">
+            <p>包含标题、内容和页脚的卡片</p>
             <template #footer>
               <div class="style-guide__footer">
-                <tr-button type="primary" size="small">Action</tr-button>
+                <tr-button type="primary" size="small">操作</tr-button>
               </div>
             </template>
           </tr-card>
@@ -63,28 +63,28 @@
       </tr-card>
 
       <!-- Tags -->
-      <tr-card title="Tags" class="style-guide__section">
+      <tr-card title="标签" class="style-guide__section">
         <div class="style-guide__tags">
-          <tr-tag color="red">Red</tr-tag>
-          <tr-tag color="orange">Orange</tr-tag>
-          <tr-tag color="gold">Gold</tr-tag>
-          <tr-tag color="green">Green</tr-tag>
-          <tr-tag color="blue">Blue</tr-tag>
-          <tr-tag color="purple">Purple</tr-tag>
-          <tr-tag color="gray">Gray</tr-tag>
+          <tr-tag color="red">红色</tr-tag>
+          <tr-tag color="orange">橙色</tr-tag>
+          <tr-tag color="gold">金色</tr-tag>
+          <tr-tag color="green">绿色</tr-tag>
+          <tr-tag color="blue">蓝色</tr-tag>
+          <tr-tag color="purple">紫色</tr-tag>
+          <tr-tag color="gray">灰色</tr-tag>
         </div>
         <div class="style-guide__tags">
-          <tr-tag color="blue" size="large">Large</tr-tag>
-          <tr-tag color="blue" size="medium">Medium</tr-tag>
-          <tr-tag color="blue" size="small">Small</tr-tag>
+          <tr-tag color="blue" size="large">大</tr-tag>
+          <tr-tag color="blue" size="medium">中</tr-tag>
+          <tr-tag color="blue" size="small">小</tr-tag>
         </div>
         <div class="style-guide__tags">
-          <tr-tag color="blue" closable>Closable Tag</tr-tag>
+          <tr-tag color="blue" closable>可关闭标签</tr-tag>
         </div>
       </tr-card>
 
       <!-- Table -->
-      <tr-card title="Table" class="style-guide__section">
+      <tr-card title="表格" class="style-guide__section">
         <tr-table
           :columns="tableColumns"
           :data="tableData"
@@ -93,52 +93,52 @@
       </tr-card>
 
       <!-- Drawer -->
-      <tr-card title="Drawer" class="style-guide__section">
+      <tr-card title="抽屉" class="style-guide__section">
         <tr-button type="primary" @click="showDrawer = true">
-          Open Drawer
+          打开抽屉
         </tr-button>
         <tr-drawer
-          title="Drawer Title"
+          title="抽屉标题"
           :visible="showDrawer"
           @cancel="showDrawer = false"
         >
-          <p>Drawer content goes here</p>
-          <p>This is a modal drawer component</p>
+          <p>抽屉内容在这里</p>
+          <p>这是一个模态抽屉组件</p>
         </tr-drawer>
       </tr-card>
 
       <!-- Workspace Card -->
-      <tr-card title="Workspace Card" class="style-guide__section">
+      <tr-card title="工作区卡片" class="style-guide__section">
         <div class="workspace-card">
           <div class="workspace-card__icon">📊</div>
           <div class="workspace-card__content">
-            <h4>Workspace Title</h4>
-            <p>Workspace description</p>
+            <h4>工作区标题</h4>
+            <p>工作区描述信息</p>
           </div>
           <div class="workspace-card__action">
-            <tr-button type="primary" size="small">Action</tr-button>
+            <tr-button type="primary" size="small">操作</tr-button>
           </div>
         </div>
       </tr-card>
 
       <!-- Object List -->
-      <tr-card title="Object List" class="style-guide__section">
+      <tr-card title="对象列表" class="style-guide__section">
         <div class="object-list">
           <div v-for="item in 5" :key="item" class="object-list__item">
             <div class="object-list__icon">📁</div>
             <div class="object-list__content">
-              <h4>Object {{ item }}</h4>
-              <p>Object description</p>
+              <h4>对象 {{ item }}</h4>
+              <p>对象描述信息</p>
             </div>
             <div class="object-list__meta">
-              <span>Updated 2 days ago</span>
+              <span>2 天前更新</span>
             </div>
           </div>
         </div>
       </tr-card>
 
       <!-- Colors -->
-      <tr-card title="Color Palette" class="style-guide__section">
+      <tr-card title="色彩体系" class="style-guide__section">
         <div class="color-palette">
           <div class="color-row">
             <div
@@ -180,18 +180,18 @@ import { TrButton, TrCard, TrTag, TrTable, TrDrawer, TrPageHeader } from '@trany
 const showDrawer = ref(false);
 
 const tableColumns = [
-  { title: 'Name', dataIndex: 'name' },
-  { title: 'Type', dataIndex: 'type' },
-  { title: 'Status', dataIndex: 'status' },
-  { title: 'Created', dataIndex: 'created' },
+  { title: '名称', dataIndex: 'name' },
+  { title: '类型', dataIndex: 'type' },
+  { title: '状态', dataIndex: 'status' },
+  { title: '创建日期', dataIndex: 'created' },
 ];
 
 const tableData = [
-  { name: 'Item 1', type: 'Type A', status: 'Active', created: '2024-01-01' },
-  { name: 'Item 2', type: 'Type B', status: 'Active', created: '2024-01-02' },
-  { name: 'Item 3', type: 'Type C', status: 'Inactive', created: '2024-01-03' },
-  { name: 'Item 4', type: 'Type A', status: 'Active', created: '2024-01-04' },
-  { name: 'Item 5', type: 'Type B', status: 'Active', created: '2024-01-05' },
+  { name: '项目 1', type: '类型 A', status: '活跃', created: '2024-01-01' },
+  { name: '项目 2', type: '类型 B', status: '活跃', created: '2024-01-02' },
+  { name: '项目 3', type: '类型 C', status: '已关闭', created: '2024-01-03' },
+  { name: '项目 4', type: '类型 A', status: '活跃', created: '2024-01-04' },
+  { name: '项目 5', type: '类型 B', status: '活跃', created: '2024-01-05' },
 ];
 </script>
 
