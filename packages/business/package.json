@@ -1,6 +1,6 @@
 {
   "name": "@tranyu/business",
-  "version": "0.3.0",
+  "version": "0.6.0",
   "type": "module",
   "files": [
     "src"
@@ -21,6 +21,10 @@
     "./ai": {
       "import": "./src/ai/index.ts",
       "types": "./src/ai/index.ts"
+    },
+    "./dashboard": {
+      "import": "./src/dashboard/index.ts",
+      "types": "./src/dashboard/index.ts"
     }
   },
   "peerDependencies": {

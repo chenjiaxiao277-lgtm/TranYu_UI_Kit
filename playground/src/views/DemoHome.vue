@@ -2,7 +2,7 @@
   <app-layout :show-sidebar="true">
     <page-container>
       <template #header>
-        <tr-page-header title="TranYu UI Kit" subtitle="Component Library v0.5.0" />
+        <tr-page-header title="TranYu UI Kit" subtitle="Component Library v0.6.0" />
       </template>
 
       <div class="demo-home">
@@ -179,6 +179,57 @@
                   <div class="demo-home__card-icon">💡</div>
                   <h4>Process Audit AI</h4>
                   <p>AI suggestions for improvements</p>
+                </div>
+              </tr-card>
+            </router-link>
+          </div>
+        </div>
+
+        <div class="demo-home__section">
+          <h3>📊 Dashboard & Analytics (v0.6.0)</h3>
+          <div class="demo-home__grid">
+            <router-link to="/dashboard-component-demo" class="demo-home__card">
+              <tr-card hoverable>
+                <div class="demo-home__card-content">
+                  <div class="demo-home__card-icon">📈</div>
+                  <h4>Dashboard Components</h4>
+                  <p>MetricCard, TrendCard, ChartCard, Widgets</p>
+                </div>
+              </tr-card>
+            </router-link>
+            <router-link to="/dashboard/business-cockpit" class="demo-home__card">
+              <tr-card hoverable>
+                <div class="demo-home__card-content">
+                  <div class="demo-home__card-icon">💼</div>
+                  <h4>Business Cockpit</h4>
+                  <p>Revenue, contracts, projects, risks overview</p>
+                </div>
+              </tr-card>
+            </router-link>
+            <router-link to="/dashboard/process-governance" class="demo-home__card">
+              <tr-card hoverable>
+                <div class="demo-home__card-content">
+                  <div class="demo-home__card-icon">⚙️</div>
+                  <h4>Process Governance</h4>
+                  <p>Workflow health, distribution, and risks</p>
+                </div>
+              </tr-card>
+            </router-link>
+            <router-link to="/dashboard/risk-warning" class="demo-home__card">
+              <tr-card hoverable>
+                <div class="demo-home__card-content">
+                  <div class="demo-home__card-icon">⚠️</div>
+                  <h4>Risk Dashboard</h4>
+                  <p>Risk warnings and mitigation tracking</p>
+                </div>
+              </tr-card>
+            </router-link>
+            <router-link to="/dashboard/ai-insight" class="demo-home__card">
+              <tr-card hoverable>
+                <div class="demo-home__card-content">
+                  <div class="demo-home__card-icon">🤖</div>
+                  <h4>AI Insights</h4>
+                  <p>Opportunities, risks, optimizations, recommendations</p>
                 </div>
               </tr-card>
             </router-link>

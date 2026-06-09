@@ -16,6 +16,11 @@ import RequirementAiGenerateDemo from './views/RequirementAiGenerateDemo.vue';
 import StageGateAiCheckDemo from './views/StageGateAiCheckDemo.vue';
 import ProjectRiskAiSummaryDemo from './views/ProjectRiskAiSummaryDemo.vue';
 import ProcessAuditAiSuggestionDemo from './views/ProcessAuditAiSuggestionDemo.vue';
+import DashboardComponentDemo from './views/DashboardComponentDemo.vue';
+import BusinessCockpitDemo from './views/BusinessCockpitDemo.vue';
+import ProcessGovernanceDashboardDemo from './views/ProcessGovernanceDashboardDemo.vue';
+import RiskWarningDashboardDemo from './views/RiskWarningDashboardDemo.vue';
+import AiBusinessInsightDemo from './views/AiBusinessInsightDemo.vue';
 import DemoHome from './views/DemoHome.vue';
 
 const routes = [
@@ -108,6 +113,31 @@ const routes = [
     path: '/ai/process-audit-suggestion',
     name: 'ProcessAuditAiSuggestionDemo',
     component: ProcessAuditAiSuggestionDemo,
+  },
+  {
+    path: '/dashboard-component-demo',
+    name: 'DashboardComponentDemo',
+    component: DashboardComponentDemo,
+  },
+  {
+    path: '/dashboard/business-cockpit',
+    name: 'BusinessCockpitDemo',
+    component: BusinessCockpitDemo,
+  },
+  {
+    path: '/dashboard/process-governance',
+    name: 'ProcessGovernanceDashboardDemo',
+    component: ProcessGovernanceDashboardDemo,
+  },
+  {
+    path: '/dashboard/risk-warning',
+    name: 'RiskWarningDashboardDemo',
+    component: RiskWarningDashboardDemo,
+  },
+  {
+    path: '/dashboard/ai-insight',
+    name: 'AiBusinessInsightDemo',
+    component: AiBusinessInsightDemo,
   },
 ];
 
