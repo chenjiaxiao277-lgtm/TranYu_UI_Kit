@@ -16,10 +16,16 @@ import RequirementAiGenerateDemo from './views/RequirementAiGenerateDemo.vue';
 import StageGateAiCheckDemo from './views/StageGateAiCheckDemo.vue';
 import ProjectRiskAiSummaryDemo from './views/ProjectRiskAiSummaryDemo.vue';
 import ProcessAuditAiSuggestionDemo from './views/ProcessAuditAiSuggestionDemo.vue';
+import DemoHome from './views/DemoHome.vue';
 
 const routes = [
   {
     path: '/',
+    name: 'DemoHome',
+    component: DemoHome,
+  },
+  {
+    path: '/style-guide',
     name: 'StyleGuide',
     component: StyleGuide,
   },
