@@ -87,6 +87,21 @@ pnpm build
 
 ## Component Usage
 
+### Component Import Rules
+
+**Rule**: Business pages import from `@tranyu/ui` only. Direct Arco Design imports are forbidden in business code.
+
+**Scope**:
+- ✓ **Allowed**: `packages/ui/*` - Arco Design imports within UI wrapper components
+- ✓ **Allowed**: `playground/*` - Arco Design imports within demo environment  
+- ✗ **Forbidden**: `packages/business/*`, `main-platform/*` - No direct Arco imports
+
+**Implementation Details**:
+- UI components (`TrButton`, `TrTag`, etc.) import Arco with actual export names: `Button`, `Tag`, `Table`, `Drawer`, `Icon` (not `AButton`, `ATag`, etc.)
+- Local component aliases preserve `Tr` prefix: `import Button as TrButton`
+- `Toolbar` is the recommended export name, `ToolBar` maintained for backward compatibility
+- Enforcement: ESLint `no-restricted-imports` rule prevents business code violations
+
 ### Import Components
 
 ```typescript
@@ -100,13 +115,17 @@ import {
   TrPageHeader,
   AppLayout,
   PageContainer,
-  ToolBar,
+  Toolbar,        // Recommended
+  ToolBar,        // Backward compatibility
   FilterBar,
   ActionBar,
 } from '@tranyu/ui';
 
-// ✗ Wrong: Don't import from @arco-design/web-vue directly
-import { Button } from '@arco-design/web-vue'; // ESLint error
+// ✗ Wrong: Don't import from @arco-design/web-vue in business code
+import { Button } from '@arco-design/web-vue'; // ESLint error in business/main-platform
+
+// ✓ OK only in packages/ui (wrapped components):
+import { Button } from '@arco-design/web-vue';
 ```
 
 ### Layout Components (v0.2.0+)
