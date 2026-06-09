@@ -1,0 +1,13 @@
+{
+  "name": "tranyu-main-platform",
+  "version": "0.5.1",
+  "description": "TranYu Main Platform - Component Library Integration Validation",
+  "type": "module",
+  "main": "src/main.ts",
+  "dependencies": {
+    "vue": "^3.5.0",
+    "@tranyu/ui": "workspace:*",
+    "@tranyu/theme": "workspace:*",
+    "@tranyu/business": "workspace:*"
+  }
+}
