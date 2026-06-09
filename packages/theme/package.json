@@ -14,7 +14,8 @@
       "import": "./dist/tokens.js",
       "types": "./dist/tokens.d.ts"
     },
-    "./css": "./dist/theme.css"
+    "./css": "./dist/theme.css",
+    "./dist/theme.css": "./dist/theme.css"
   },
   "scripts": {
     "build": "node scripts/build.js"

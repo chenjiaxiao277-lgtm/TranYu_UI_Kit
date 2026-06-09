@@ -13,6 +13,14 @@
     "./object": {
       "import": "./src/object/index.ts",
       "types": "./src/object/index.ts"
+    },
+    "./process": {
+      "import": "./src/process/index.ts",
+      "types": "./src/process/index.ts"
+    },
+    "./ai": {
+      "import": "./src/ai/index.ts",
+      "types": "./src/ai/index.ts"
     }
   },
   "peerDependencies": {

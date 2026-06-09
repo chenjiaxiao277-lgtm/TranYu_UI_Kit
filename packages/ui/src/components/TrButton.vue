@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { AButton } from '@arco-design/web-vue';
+import { Button as AButton } from '@arco-design/web-vue';
 
 interface Props {
   type?: 'primary' | 'secondary' | 'dashed' | 'text' | 'outline';

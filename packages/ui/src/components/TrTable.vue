@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { ATable } from '@arco-design/web-vue';
+import { Table as ATable } from '@arco-design/web-vue';
 
 interface Props {
   columns?: any[];

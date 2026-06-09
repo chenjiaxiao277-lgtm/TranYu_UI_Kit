@@ -36,21 +36,6 @@
           <span class="object-detail-drawer__meta-value">{{ formatDate(record.updatedAt) }}</span>
         </div>
       </div>
-
-      <!-- Actions -->
-      <template #footer>
-        <div class="object-detail-drawer__footer">
-          <tr-button type="secondary" @click="$emit('close')">Close</tr-button>
-          <tr-button
-            v-for="action in actions"
-            :key="action.id"
-            :type="action.type"
-            @click="handleAction(action)"
-          >
-            {{ action.label }}
-          </tr-button>
-        </div>
-      </template>
     </div>
 
     <div v-else-if="loading" class="object-detail-drawer__loading">
@@ -60,6 +45,21 @@
     <div v-else class="object-detail-drawer__empty">
       No data
     </div>
+
+    <!-- Actions Footer -->
+    <template #footer>
+      <div class="object-detail-drawer__footer">
+        <tr-button type="secondary" @click="$emit('close')">Close</tr-button>
+        <tr-button
+          v-for="action in actions"
+          :key="action.id"
+          :type="action.type"
+          @click="handleAction(action)"
+        >
+          {{ action.label }}
+        </tr-button>
+      </div>
+    </template>
   </tr-drawer>
 </template>
 

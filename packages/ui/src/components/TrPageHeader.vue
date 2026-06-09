@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { AIcon } from '@arco-design/web-vue';
+import { Icon as AIcon } from '@arco-design/web-vue';
 
 interface Props {
   title: string;

@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { ADrawer } from '@arco-design/web-vue';
+import { Drawer as ADrawer } from '@arco-design/web-vue';
 
 interface Props {
   title?: string;

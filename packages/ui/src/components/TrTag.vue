@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ATag } from '@arco-design/web-vue';
+import { Tag as ATag } from '@arco-design/web-vue';
 
 interface Props {
   color?: string;

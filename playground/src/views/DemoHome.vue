@@ -14,7 +14,7 @@
         <div class="demo-home__section">
           <h3>📚 Foundation</h3>
           <div class="demo-home__grid">
-            <router-link to="/" class="demo-home__card">
+            <router-link to="/style-guide" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🎨</div>

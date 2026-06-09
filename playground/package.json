@@ -10,7 +10,9 @@
     "@arco-design/web-vue": "^2.53.0",
     "@tranyu/theme": "workspace:*",
     "@tranyu/ui": "workspace:*",
-    "vue": "^3.4.21"
+    "@tranyu/business": "workspace:*",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
