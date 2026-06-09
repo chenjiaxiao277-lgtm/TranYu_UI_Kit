@@ -2,24 +2,24 @@
   <app-layout :show-sidebar="true">
     <page-container>
       <template #header>
-        <tr-page-header title="TranYu UI Kit" subtitle="Component Library v0.6.0" />
+        <tr-page-header title="创与前端组件库" subtitle="AI原生流程型企业经营管理平台组件体系 v0.6.0" />
       </template>
 
       <div class="demo-home">
         <div class="demo-home__intro">
-          <h2>Welcome to TranYu UI Component Library</h2>
-          <p>Enterprise-grade Vue 3 components with design tokens and business logic reusability</p>
+          <h2>欢迎使用创与前端组件库</h2>
+          <p>企业级 Vue 3 组件体系，集成设计令牌、业务逻辑复用和 AI 原生能力</p>
         </div>
 
         <div class="demo-home__section">
-          <h3>📚 Foundation</h3>
+          <h3>📚 基础设计</h3>
           <div class="demo-home__grid">
             <router-link to="/style-guide" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🎨</div>
-                  <h4>Style Guide</h4>
-                  <p>Design tokens, colors, spacing, and typography</p>
+                  <h4>设计令牌</h4>
+                  <p>色彩、间距、圆角、阴影和动画标准</p>
                 </div>
               </tr-card>
             </router-link>
@@ -27,14 +27,14 @@
         </div>
 
         <div class="demo-home__section">
-          <h3>🎯 Layout System (v0.2.0)</h3>
+          <h3>🎯 平台布局</h3>
           <div class="demo-home__grid">
             <router-link to="/layout-demo" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📐</div>
-                  <h4>Layout Demo</h4>
-                  <p>AppLayout, HeaderBar, SideBar, PageContainer</p>
+                  <h4>布局演示</h4>
+                  <p>应用框架、页面容器、侧边栏、页面头部</p>
                 </div>
               </tr-card>
             </router-link>
@@ -42,8 +42,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🏢</div>
-                  <h4>Workbench Layout</h4>
-                  <p>Complete application workbench example</p>
+                  <h4>工作台布局</h4>
+                  <p>完整应用工作台示例</p>
                 </div>
               </tr-card>
             </router-link>
@@ -51,14 +51,14 @@
         </div>
 
         <div class="demo-home__section">
-          <h3>🔧 Business Objects (v0.3.0)</h3>
+          <h3>🔧 业务对象</h3>
           <div class="demo-home__grid">
             <router-link to="/object-component-demo" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📦</div>
-                  <h4>Object Components Hub</h4>
-                  <p>Configuration-driven object components</p>
+                  <h4>对象组件中心</h4>
+                  <p>配置驱动的对象组件系统</p>
                 </div>
               </tr-card>
             </router-link>
@@ -66,8 +66,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🎯</div>
-                  <h4>Project Object</h4>
-                  <p>Project management with status, budget, progress</p>
+                  <h4>项目管理</h4>
+                  <p>项目状态、预算、进度管理</p>
                 </div>
               </tr-card>
             </router-link>
@@ -75,8 +75,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📋</div>
-                  <h4>Demand Object</h4>
-                  <p>Requirement management with priority, assignee</p>
+                  <h4>需求管理</h4>
+                  <p>需求优先级、责任人、状态跟踪</p>
                 </div>
               </tr-card>
             </router-link>
@@ -84,8 +84,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">⚠️</div>
-                  <h4>Risk Object</h4>
-                  <p>Risk tracking with level, probability, impact</p>
+                  <h4>风险管理</h4>
+                  <p>风险等级、概率、影响评估</p>
                 </div>
               </tr-card>
             </router-link>
@@ -93,14 +93,14 @@
         </div>
 
         <div class="demo-home__section">
-          <h3>⚙️ Process Workflows (v0.4.0)</h3>
+          <h3>⚙️ 流程工作流</h3>
           <div class="demo-home__grid">
             <router-link to="/process-component-demo" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🔄</div>
-                  <h4>Process Components Hub</h4>
-                  <p>Workflow and approval components</p>
+                  <h4>流程组件中心</h4>
+                  <p>工作流、审批流和时间线组件</p>
                 </div>
               </tr-card>
             </router-link>
@@ -108,8 +108,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">✅</div>
-                  <h4>Project Approval</h4>
-                  <p>Platform v3.0 project initiation workflow</p>
+                  <h4>项目审批</h4>
+                  <p>平台 v3.0 项目启动审批流程</p>
                 </div>
               </tr-card>
             </router-link>
@@ -117,8 +117,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📝</div>
-                  <h4>Demand Review</h4>
-                  <p>API Design Review approval process</p>
+                  <h4>需求评审</h4>
+                  <p>API 设计评审流程</p>
                 </div>
               </tr-card>
             </router-link>
@@ -126,8 +126,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🔐</div>
-                  <h4>Risk Closure</h4>
-                  <p>Schedule Delay risk closure workflow</p>
+                  <h4>风险关闭</h4>
+                  <p>进度延期风险关闭流程</p>
                 </div>
               </tr-card>
             </router-link>
@@ -135,14 +135,14 @@
         </div>
 
         <div class="demo-home__section">
-          <h3>🤖 AI Actions (v0.5.0)</h3>
+          <h3>🤖 AI智能辅助</h3>
           <div class="demo-home__grid">
             <router-link to="/ai-component-demo" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">✨</div>
-                  <h4>AI Components Hub</h4>
-                  <p>AI-driven assistance and suggestions</p>
+                  <h4>AI 组件中心</h4>
+                  <p>AI 驱动的内容生成、检查和建议</p>
                 </div>
               </tr-card>
             </router-link>
@@ -150,8 +150,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📄</div>
-                  <h4>Requirement AI</h4>
-                  <p>AI generation of requirement specs</p>
+                  <h4>需求生成 AI</h4>
+                  <p>AI 生成需求说明书</p>
                 </div>
               </tr-card>
             </router-link>
@@ -159,8 +159,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🚪</div>
-                  <h4>Stage Gate AI</h4>
-                  <p>AI validation of deliverables</p>
+                  <h4>阶段评审 AI</h4>
+                  <p>AI 验证交付物质量</p>
                 </div>
               </tr-card>
             </router-link>
@@ -168,8 +168,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📊</div>
-                  <h4>Risk Summary AI</h4>
-                  <p>AI risk analysis and mitigation</p>
+                  <h4>风险分析 AI</h4>
+                  <p>AI 风险分析和应对建议</p>
                 </div>
               </tr-card>
             </router-link>
@@ -177,8 +177,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">💡</div>
-                  <h4>Process Audit AI</h4>
-                  <p>AI suggestions for improvements</p>
+                  <h4>流程优化 AI</h4>
+                  <p>AI 流程改进建议</p>
                 </div>
               </tr-card>
             </router-link>
@@ -186,14 +186,14 @@
         </div>
 
         <div class="demo-home__section">
-          <h3>📊 Dashboard & Analytics (v0.6.0)</h3>
+          <h3>📊 经营驾驶舱</h3>
           <div class="demo-home__grid">
             <router-link to="/dashboard-component-demo" class="demo-home__card">
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">📈</div>
-                  <h4>Dashboard Components</h4>
-                  <p>MetricCard, TrendCard, ChartCard, Widgets</p>
+                  <h4>驾驶舱组件</h4>
+                  <p>指标卡、趋势图、图表、组件系统</p>
                 </div>
               </tr-card>
             </router-link>
@@ -201,8 +201,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">💼</div>
-                  <h4>Business Cockpit</h4>
-                  <p>Revenue, contracts, projects, risks overview</p>
+                  <h4>经营驾驶舱</h4>
+                  <p>收入、合同、项目、风险总览</p>
                 </div>
               </tr-card>
             </router-link>
@@ -210,8 +210,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">⚙️</div>
-                  <h4>Process Governance</h4>
-                  <p>Workflow health, distribution, and risks</p>
+                  <h4>流程治理</h4>
+                  <p>工作流健康度、分布和风险</p>
                 </div>
               </tr-card>
             </router-link>
@@ -219,8 +219,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">⚠️</div>
-                  <h4>Risk Dashboard</h4>
-                  <p>Risk warnings and mitigation tracking</p>
+                  <h4>风险预警</h4>
+                  <p>风险监控和应对跟踪</p>
                 </div>
               </tr-card>
             </router-link>
@@ -228,8 +228,8 @@
               <tr-card hoverable>
                 <div class="demo-home__card-content">
                   <div class="demo-home__card-icon">🤖</div>
-                  <h4>AI Insights</h4>
-                  <p>Opportunities, risks, optimizations, recommendations</p>
+                  <h4>AI 经营分析</h4>
+                  <p>机遇、风险、优化、建议</p>
                 </div>
               </tr-card>
             </router-link>
@@ -237,8 +237,8 @@
         </div>
 
         <div class="demo-home__footer">
-          <p>🚀 All components reuse design tokens and business logic patterns</p>
-          <p>📦 Configuration-driven architecture enables rapid feature deployment</p>
+          <p>🚀 所有组件基于统一的设计令牌和业务逻辑模式构建</p>
+          <p>📦 配置驱动的架构设计，加速业务功能快速迭代</p>
         </div>
       </div>
     </page-container>
