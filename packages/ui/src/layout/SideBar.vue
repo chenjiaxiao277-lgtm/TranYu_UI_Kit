@@ -7,14 +7,14 @@
         href="#"
         class="sidebar__item"
         :class="{ 'sidebar__item--active': activeItem === item.id }"
-        @click.prevent="selectItem(item.id)"
+        @click.prevent="selectItem(item.id, item.path)"
       >
         <span class="sidebar__icon">{{ item.icon }}</span>
         <span class="sidebar__label">{{ item.label }}</span>
       </a>
     </div>
     <div class="sidebar__footer">
-      <div class="sidebar__info">Version 0.2.0</div>
+      <div class="sidebar__info">v0.6.1</div>
     </div>
   </nav>
 </template>
@@ -26,20 +26,23 @@ interface MenuItem {
   id: string;
   label: string;
   icon: string;
+  path: string;
 }
 
-const menuItems = ref<MenuItem[]>([
-  { id: 'dashboard', label: 'Dashboard', icon: '📊' },
-  { id: 'objects', label: 'Objects', icon: '📁' },
-  { id: 'reports', label: 'Reports', icon: '📈' },
-  { id: 'settings', label: 'Settings', icon: '⚙️' },
-  { id: 'help', label: 'Help', icon: '❓' },
-]);
+const activeItem = ref('workbench');
 
-const activeItem = ref('dashboard');
+const menuItems: MenuItem[] = [
+  { id: 'workbench', label: '工作台', icon: '🏠', path: '/workbench' },
+  { id: 'objects', label: '对象管理', icon: '📁', path: '/objects' },
+  { id: 'process', label: '流程待办', icon: '📋', path: '/process-todos' },
+  { id: 'business-cockpit', label: '经营驾驶舱', icon: '💼', path: '/cockpit/business' },
+  { id: 'process-governance', label: '流程治理驾驶舱', icon: '⚙️', path: '/cockpit/process-governance' },
+  { id: 'risk-warning', label: '风险预警中心', icon: '⚠️', path: '/cockpit/risk-warning' },
+];
 
-const selectItem = (id: string) => {
+const selectItem = (id: string, path: string) => {
   activeItem.value = id;
+  window.location.hash = path;
 };
 
 defineEmits<{

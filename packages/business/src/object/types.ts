@@ -154,3 +154,39 @@ export interface ObjectToolbarProps {
   showSearch?: boolean;
   showRefresh?: boolean;
 }
+
+export type ObjectFormMode = 'create' | 'edit' | 'readonly' | 'approve' | 'inline';
+
+export interface ObjectFormGroup {
+  id: string;
+  title: string;
+  description?: string;
+  fields: ObjectField[];
+  collapsible?: boolean;
+  defaultExpanded?: boolean;
+}
+
+export interface ObjectFormConfig {
+  objectType: string;
+  mode: ObjectFormMode;
+  fields: ObjectField[] | ObjectFormGroup[];
+  record?: ObjectRecord;
+  permissions?: ObjectPermission;
+  hiddenFields?: string[];
+  readOnlyFields?: string[];
+  requiredFields?: string[];
+  fieldDefaults?: Record<string, unknown>;
+  validation?: Record<string, unknown>;
+  onSubmit?: (payload: ObjectFormSubmitPayload) => Promise<void>;
+  onCancel?: () => void;
+  onSave?: (data: Record<string, unknown>) => Promise<void>;
+}
+
+export interface ObjectFormSubmitPayload {
+  objectType: string;
+  mode: ObjectFormMode;
+  recordId?: string;
+  data: Record<string, unknown>;
+  changedFields?: string[];
+  timestamp: number;
+}
